@@ -3,8 +3,8 @@ import os
 import logging
 from pathlib import Path
 
-# from parquet.util import setup_logger
-from util import setup_logger
+from parquet.util import setup_logger
+#from util import setup_logger
 
 
 # setup_logger()
