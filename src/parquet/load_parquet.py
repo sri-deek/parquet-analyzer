@@ -6,9 +6,6 @@ from pathlib import Path
 from parquet.util import setup_logger
 #from util import setup_logger
 
-
-# setup_logger()
-# LOGGER = logging.getLogger(__name__)
 LOGGER = setup_logger(__name__, logging.INFO)
 
 def load_parquet_data(folder_path: str, file_name: str) -> pd.DataFrame:
@@ -66,8 +63,9 @@ def load_parquet_data(folder_path: str, file_name: str) -> pd.DataFrame:
     return df
     
 if __name__ == "__main__":
-    folder_path = "data/processed"
-    file_name = "training_data.parquet"
+    folder_path = os.getenv("FOLDER_PATH", "data/processed")
+    file_name = os.getenv("FILE_PATH", "training_data.parquet")
+
 
     try:
         data = load_parquet_data(folder_path, file_name)
